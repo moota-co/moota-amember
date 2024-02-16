@@ -348,7 +348,14 @@ CUT
         }
     }
 
-    public function createTransaction(Am_Mvc_Request $request, Am_Mvc_Response $response, array $invokeArgs)
+    /** Create transaction object based on request or return null if nope
+     * @param Am_Mvc_Request $request
+     * @param Am_Mvc_Response $response
+     * @param array $invokeArgs
+     * @return Am_Paysystem_Transaction_Incoming|null
+     * @abstract
+     */
+    public function createTransaction(/*Am_Mvc_Request*/ $request, /*Am_Mvc_Response*/ $response, array $invokeArgs)
     {
         return new Am_Paysystem_Transaction_Moota($this, $request, $response, $invokeArgs);
     }
